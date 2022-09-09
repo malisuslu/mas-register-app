@@ -6,8 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    {% comment %} <link rel="stylesheet" href="https://unpkg.com/flowbite@1.5.3/dist/flowbite.min.css" /> {% endcomment %}
   </head>
   <body>
-    {% block container %} {% endblock container %}
+    {% block container %}{% endblock container %}
+
+    
+    <script src="https://unpkg.com/flowbite@1.5.3/dist/flowbite.js"></script>
+    {% block js %}{% endblock js %}
   </body>
 </html>

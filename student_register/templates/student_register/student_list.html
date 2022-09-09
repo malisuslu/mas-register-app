@@ -1,27 +1,50 @@
 {% extends "student_register/base.html" %}
+
 {% block container %}
 
-<table class="max-w-2/3 w-fit mx-auto mt-6 text-sm text-left text-gray-500 dark:text-gray-400">
-  <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
-    <tr>
-      <th scope="col" class="py-3 px-6">Full Name</th>
-      <th scope="col" class="py-3 px-6">Path</th>
-      <th scope="col" class="py-3 px-6 text-center"><a class="bg-transparent hover:bg-green-500 text-green-700 font-semibold hover:text-white py-2 px-4 border border-green-500 hover:border-transparent rounded whitespace-nowrap" href={% url 'form' %}><span class="hidden sm:inline">Add </span>New +</a></th>
-    </tr>
-  </thead>
-  <tbody>
-    {% for student in student_list %}
-    <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
-      <td class="py-4 px-6">{{ student.full_name }}</td>
-      <td class="py-4 px-6">{{ student.path }}</td>
-      <td class="text-center flex flex-col sm:block sm:text-center">
-        <a class="font-medium text-blue-600 dark:text-blue-500 hover:underline cursor-pointer" href={% url 'update' student.id %}>✍Edit</a>
-        &nbsp;&nbsp;
-        <a class="font-medium text-red-600 dark:text-red-500 hover:underline cursor-pointer" href={% url 'verifydelete' student.id %}>🗑Delete</a>
-    </td>
-    </tr>
-    {% endfor %}
-  </tbody>
-</table>
-
+  <table class="max-w-2/3 w-fit mx-auto mt-6 text-sm text-left text-gray-500 dark:text-gray-400">
+    <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+      <tr>
+        <th scope="col" class="py-3 px-6">Full Name</th>
+        <th scope="col" class="py-3 px-6">Path</th>
+        <th scope="col" class="py-3 px-6 text-center"><a class="bg-transparent hover:bg-green-500 text-green-700 font-semibold hover:text-white py-2 px-4 border border-green-500 hover:border-transparent rounded whitespace-nowrap" href={% url 'form' %}><span class="hidden sm:inline">Add </span>New +</a></th>
+        {% comment %} {% include 'student_register/edit_modal.html' %} {% endcomment %}
+      </tr>
+    </thead>
+    <tbody>
+      {% for student in student_list %}
+      <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+        <td class="py-4 px-6">{{ student.full_name }}</td>
+        <td class="py-4 px-6">{{ student.path }}</td>
+        <td class="p-0 sm:py-4 sm:px-6 text-center flex flex-col sm:block">
+          <a class="font-medium text-blue-600 dark:text-blue-500 hover:underline cursor-pointer" href={% url 'update' student.id %}>✍Edit</a>
+          &nbsp;&nbsp;
+          <a class="del font-medium text-red-600 dark:text-red-500 hover:underline cursor-pointer" data-modal-toggle="{{ student.id }}" ind="{{ student.id }}">🗑Delete</a>
+          {% include 'student_register/modal.html' %}
+        </td>
+      </tr>
+      {% endfor %}
+      
+    </tbody>
+  </table>
+  
 {% endblock container %}
+
+
+{% block js %}
+  <script>
+  let dels = document.querySelectorAll(".del");
+  dels.forEach((del) => {
+    del.onclick = () => {
+      let id = del.getAttribute("ind");
+      let modal = document.getElementById(id);
+      document.onclick = (e) => {
+        console.log(e.target)
+        if (e.target == modal) {
+          del.click();
+        };
+      };
+    };
+  });
+  </script>
+{% endblock js %}

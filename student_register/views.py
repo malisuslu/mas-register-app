@@ -1,4 +1,3 @@
-from re import fullmatch
 from django.shortcuts import render, redirect
 from .models import Student
 from .forms import StudentForm
@@ -50,12 +49,13 @@ class student_add_update(View):
             form = StudentForm()
         else:
             student = Student.objects.get(pk=id)
-            form = StudentForm(instance=student)
+            form = StudentForm(instance=student, form_title="Student Update", button_text="Update")
         return render(request, 'student_register/student_form.html', {"form": form})
 
     def post(self, request, id=0):
         if id == 0:
             form = StudentForm(request.POST)
+
             if form.is_valid():
                 form.save()
                 messages.success(request, "Registaration Successfull ✓✓")
@@ -65,14 +65,15 @@ class student_add_update(View):
                 form = StudentForm(request.POST)
         else:
             student = Student.objects.get(pk=id)
-            form = StudentForm(request.POST, instance=student)
+            form = StudentForm(request.POST, instance=student, form_title="Student Update", button_text="Update")
+
             if form.is_valid():
                 form.save()
                 messages.success(request, "Updated Successfully ✓✓")
-                form = StudentForm()
+                form = StudentForm(form_title="Student Update", button_text="Update")
             else:
                 messages.error(request, "Update failed!!")
-                form = StudentForm(request.POST)
+                form = StudentForm(request.POST, instance=student, form_title="Student Update", button_text="Update")
 
         return render(request, 'student_register/student_form.html', {"form": form})
 

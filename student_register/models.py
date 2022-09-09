@@ -15,12 +15,19 @@ class Student(models.Model):
         ('ART', 'Arts'),
         ('OTHER', "Others"),
     ]
+    
     full_name = models.CharField(max_length=50)
     number = models.IntegerField(null=False, blank=False, unique=True)
-    mobile = PhoneNumberField()
+    mobile = PhoneNumberField(unique=True)
     email = models.EmailField(max_length=254, null=False, blank=False, unique=True)
     gender = models.CharField(max_length=20, null=False, choices=GENDER)
     path = models.CharField(max_length=20, null=False, choices=PATH)
 
     def __str__(self):
-        return self.full_name
+        return f"{self.id} - {self.full_name}"
+
+    # def id_num(self):
+    #     return f"{self.id}"
+
+    class Meta:
+        ordering = ["id"]

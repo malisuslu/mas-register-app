@@ -36,19 +36,19 @@ CORS_ALLOW_CREDENTIALS = True
 CORS_REPLACE_HTTPS_REFERER = True
 
 CORS_ORIGIN_WHITELIST = (
-    'https://mas-register-app.vercel.app/',
-    'http://mas-register-app.vercel.app/',
-    'https://mas-register-app.up.railway.app/',
-    'http://mas-register-app.up.railway.app/',
+    'https://mas-register-app.vercel.app',
+    'http://mas-register-app.vercel.app',
+    'https://mas-register-app.up.railway.app',
+    'http://mas-register-app.up.railway.app',
     'https://railway.app/',
     '*',
 )
 
 CSRF_TRUSTED_ORIGINS = [
-    'https://mas-register-app.vercel.app/',
-    'http://mas-register-app.vercel.app/',
-    'https://mas-register-app.up.railway.app/',
-    'http://mas-register-app.up.railway.app/',
+    'https://mas-register-app.vercel.app',
+    'http://mas-register-app.vercel.app',
+    'https://mas-register-app.up.railway.app',
+    'http://mas-register-app.up.railway.app',
     'http://*',
     'https://*',
     ]

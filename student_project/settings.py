@@ -29,6 +29,25 @@ DEBUG = config('DEBUG', default=True, cast=bool)
 
 ALLOWED_HOSTS = ['*']
 
+CORS_ORIGIN_ALLOW_ALL = True
+
+CORS_ALLOW_CREDENTIALS = True
+
+CORS_REPLACE_HTTPS_REFERER = True
+
+CORS_ORIGIN_WHITELIST = (
+    'https://mas-register-app.vercel.app/',
+    'http://mas-register-app.vercel.app/',
+    'https://railway.app/',
+    '*',
+)
+
+CSRF_TRUSTED_ORIGINS = [
+    'https://mas-register-app.vercel.app/',
+    'http://mas-register-app.vercel.app/',    
+    'http://*',
+    'https://*',
+    ]
 
 # Application definition
 

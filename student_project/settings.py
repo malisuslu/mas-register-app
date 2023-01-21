@@ -41,7 +41,8 @@ CORS_ORIGIN_WHITELIST = (
     'https://mas-register-app.up.railway.app',
     'http://mas-register-app.up.railway.app',
     'https://railway.app/',
-    '*',
+    'http://*',
+    'https://*',
 )
 
 CSRF_TRUSTED_ORIGINS = [
@@ -49,20 +50,18 @@ CSRF_TRUSTED_ORIGINS = [
     'http://mas-register-app.vercel.app',
     'https://mas-register-app.up.railway.app',
     'http://mas-register-app.up.railway.app',
-    'http://*',
-    'https://*',
     ]
 
 # Application definition
 
 INSTALLED_APPS = [
+    'student_register',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'student_register',
     "crispy_forms",
     "crispy_tailwind",
     'phonenumber_field',

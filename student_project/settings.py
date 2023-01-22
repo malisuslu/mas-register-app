@@ -50,6 +50,9 @@ CSRF_TRUSTED_ORIGINS = [
     'http://mas-register-app.vercel.app',
     'https://mas-register-app.up.railway.app',
     'http://mas-register-app.up.railway.app',
+    'https://railway.app/',
+    'http://*',
+    'https://*',
     ]
 
 # Application definition

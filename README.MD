@@ -1,6 +1,6 @@
 <!-- Please update value in the {}  -->
 
-<h1 align="center">ToDo App with Django</h1>
+<h1 align="center">Student Register App (Django)</h1>
 
 
 <div align="center">
@@ -68,28 +68,10 @@ $ git clone https://github.com/malisuslu/mas-register-app.git
 ```
 
 ## Acknowledgements
+
 - This is my first Django App. Styling made by Tailwind, Crispy_Tailwind for the form. PostgreSQL DB is created on Railway, and the app deployed to Vercel for page preview... 
 
 ## Contact
 
 - GitHub [@malisuslu](https://github.com/malisuslu)
 - Linkedin [@malisuslu](https://www.linkedin.com/in/malisuslu/)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-# Student Register App (Django)
-
-This is my first Django App. Styling made by Tailwind, SQLite is used for DB, Crispy_Tailwind for the form and the entire app deployed on Heroku for page preview...
-
-[click for page preview](https://mas-register-app.herokuapp.com/)

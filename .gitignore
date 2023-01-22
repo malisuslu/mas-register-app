@@ -7,7 +7,7 @@
 *.pyc
 __pycache__/
 local_settings.py
-# db.sqlite3
+db.sqlite3
 db.sqlite3-journal
 media
 
@@ -180,3 +180,4 @@ vscode/
 
 # End of https://www.toptal.com/developers/gitignore/api/django
 .vercel
+build.sh

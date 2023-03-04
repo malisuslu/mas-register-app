@@ -69,7 +69,7 @@ $ git clone https://github.com/malisuslu/mas-register-app.git
 
 ## Acknowledgements
 
-- This is my first Django App. Styling made by Tailwind, Crispy_Tailwind for the form. PostgreSQL DB is created on Railway, and the app deployed to Vercel for page preview... 
+- This is my first Django App. Styling made by Tailwind, Crispy_Tailwind for the form. PostgreSQL DB is created on ElephantSQL, and the app deployed to Vercel for page preview... 
 
 ## Contact
 
